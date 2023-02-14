@@ -13,24 +13,38 @@ Iternate through the dictionary to print out their name and thier new salary (as
 import csv
 
 #open the file
+with open("employee_data","r") as file:
+    data = csv.reader(file)
+    header = file.readline().strip().split(",")
+    first_name_index = header.index("First Name")
+    last_name_index = header.index("Last Name")
+    clearance_index = header.index("Clearance")
 
 
+total_difference = 0
+for employee in data:
+    if data['Clearance'] == 'TS':
+        old_salary = data['Salary']
+        new_salary = old_salary * 1.1  # 10% increase
+        total_difference += (new_salary - old_salary)
 
+employee_dict = {}
+for employee in data:
+    if data['Clearance'] == 'TS':
+        new_salaries[data['name']] = data['salary'] * 1.1
+        employee_dict.append(new_salaries)
 
-#create an empty dictionary
+print("Employee Name:",header.index("First Name") and header.index("Last Name") )
+print("Total difference: $", total_difference)
+print("New salaries: ", new_salaries)
 
-
-#use a loop to iterate through the csv file
-
-
-    #check if the employee fits the search criteria
 
 
     
 
-print()
-print('=========================================')
-print()
+#print()
+#print('=========================================')
+#print()
 
 #iternate through the dictionary and print out the key and value as per image
 
@@ -39,11 +53,12 @@ print()
 
           
 
-print()
-print('=========================================')
-print()
+#print()
+#print('=========================================')
+#print()
 
 #print out the total difference between the old salary and the new salary as per image.
 
         
     
+
